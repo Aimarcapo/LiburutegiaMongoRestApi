@@ -21,6 +21,8 @@ Inportatzen hasi aurretik, MongoDB zerbitzari berri bat sortzea beharrezkoa da. 
 Rest zerbitzuak egitura partikular bat dauka, erabiltzaileak eskaera desberdinak egin ditzakeen zerbitzu honetan (CRUD eragiketak). Elkarri desberdinak diren eskaera mota bakoitzeko, edukitik abiatuta eragiketa jakin bat edo bestea egingo du zerbitzuak. Eskaera Swagger erabiliz edo beste garapen ingurumuturren bidez, hainbat erabilera ingurumutan (Insomnia edo Postman bezala) egin daiteke.
 
 ### Endpoints Ikuspegi Orokorra
+<img width="1166" alt="Captura de pantalla 2024-01-13 194009" src="https://github.com/Aimarcapo/LiburutegiaMongoRestApi/assets/114486033/69bdd802-5f7d-4f23-9248-bd463f9ac5bf">
+
 
 | Mota | Endpoint | Emaitza |
 | ---- | -------- | ------- |
