@@ -24,24 +24,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
 @RestController
 // Rest Apiaren
 @RequestMapping(path = "/liburutegia")
 public class LiburutegiController {
 	@Autowired
 	private LiburutegiaRepository liburutegiaRepository;
+/**
+     * Liburutegi guztiak itzultzen dituen metodoa. 
+     * 
+     * @param codigo Liburutegiaren kodea, hainbat erabilera posiblekin.
+     * @return Liburutegi guztiak edo emandako kodearen arabera filtratutakoak.
+     */
+    @GetMapping()
+    public @ResponseBody Iterable<Liburutegia> getAllLiburutegia(
+            @RequestParam(value = "codigo", required = false) Integer codigo) {
 
-	@GetMapping()
-	public @ResponseBody Iterable<Liburutegia> getAllLiburutegia(@RequestParam (value="codigo",required = false) Integer codigo) {
-		
-		if(codigo==null){
-			return liburutegiaRepository.findAll();
-		}else{
-				return liburutegiaRepository.findByMunicipioCodigo(codigo);
-		}
-		
-	}
+        if (codigo == null) {
+            // Kodea ez bada ematen, guztiak itzuli
+            return liburutegiaRepository.findAll();
+        } else {
+            // Kodea ematen bada, kodearen arabera filtratutakoak itzuli
+            return liburutegiaRepository.findByMunicipioCodigo(codigo);
+        }
+    }
 
   /**
  * Liburutegia kontsultatzeko edo ezabatzeko API-endpoint-a. 
@@ -82,23 +88,6 @@ public class LiburutegiController {
 		}
 		
 	}
-
-/* 	@DeleteMapping(path = "/deleteBy/{direccion_codigo_postal}/{municipio_codigo}")
-	public ResponseEntity<Void> deleteByAdress(@PathVariable int direccion_codigo_postal,
-		@PathVariable int municipio_codigo) {
-
-				try {
-					long ezabatua = liburutegiaRepository.deleteByAdress(direccion_codigo_postal, municipio_codigo);
-						System.out.println("Ezabatutako liburutegi kopurua🔆: " + ezabatua);
-			return ResponseEntity.ok().build();
-					
-			
-				} catch (Exception e) {
-						System.out.println("Errorea  liburutegia ezabatzerakoan. ");
-			return ResponseEntity.notFound().build();
-				}
-	}
- */
 	/**
 	 * Creates a new library resource using the provided data through an endpoint.
 	 *
