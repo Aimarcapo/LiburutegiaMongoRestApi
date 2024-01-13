@@ -32,3 +32,4 @@ Rest zerbitzuak egitura partikular bat dauka, erabiltzaileak eskaera desberdinak
 ## MongoDB Java Proiektua
 
 
+![Diagrama drawio](https://github.com/Aimarcapo/LiburutegiaMongoRestApi/assets/114486033/b1f24fd2-738a-4afa-84eb-c171c263438d)
